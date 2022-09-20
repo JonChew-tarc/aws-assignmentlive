@@ -1,6 +1,8 @@
 # Install flask on EC2 
 # Either add "sudo" before all commands or use "sudo su" first
 
+#the code below is to enable auto scaling
+
 #!/bin/bash
 yum update -y
 yum install git -y
