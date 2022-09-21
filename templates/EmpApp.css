@@ -6,6 +6,63 @@ body {
     background-color : #2b6777;
 }
 
+.navbar {
+	display: flex;
+	/*background-color: red;*/
+	height: 60px;
+}
+
+.navbar-left {
+	flex: 20%;
+/*	background-color: blue; */
+}
+
+.navbar-left a {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.navbar-left img {
+	height: 15%;
+	width: 15%;
+	object-fit: contain;
+	margin: 0 200px 0 0;
+}
+
+.navbar-left img:hover {
+	cursor: pointer;
+}
+
+.navbar-middle {
+	display: flex;
+	flex: 60%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.navbar-middle a {
+	color: black;
+	text-decoration: none;
+}
+
+.navbar-middle p {
+	font-size: 17px;
+	text-align: center;
+	font-weight: 500;
+}
+
+.navbar-middle p:hover {
+	cursor:pointer;
+}
+
+.navbar-right {
+	flex: 20%;
+	/*background-color: pink; */
+}
+
+
 #AddEmpTitle {
     font-size : 35pt;
     color:white;

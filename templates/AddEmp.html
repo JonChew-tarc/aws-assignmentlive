@@ -7,6 +7,30 @@
 		
 
 		<body>
+			<div class="navbar">
+				<div class="navbar-left">
+					<a href="/">
+						<p>Home </p>
+					</a>
+				</div>
+				<div class="navbar-middle">
+					<a href="/addemp/">
+						<p>Add Employees</p>
+					</a>
+					<a href="/getemp/">
+						<p>Get Employees</p>
+					</a>
+					<a href="/attendance/">
+						<p>Attendance</p>
+					</a>
+					<a href="/payroll/">
+						<p>Payroll Calculator</p>
+					</a>
+				</div>
+				<div class="navbar-right"></div>
+				{{ date.strftime("%A, %d %B, %Y at %X") }}
+			</div>
+
 			<h1 id="AddEmpTitle" >Employee Database</h1>
 
 			<form action="/addemp/results" autocomplete="on" method = "POST" enctype="multipart/form-data" class="addEmpFormClass-bubble">
