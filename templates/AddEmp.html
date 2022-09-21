@@ -4,35 +4,42 @@
 	<link rel="stylesheet" type="text/css" href="EmpApp.css" />
 	<title>Add Employee Information</title>
 </head>
-<center>
-	<font color="black" size="4" style="font-family: avenir">
+		
 
-		<h1 id="AddEmpTitle" style="font-size:15pt;color:whitesmoke">Employee Database</h1>
+		<body>
+			<h1 id="AddEmpTitle" >Employee Database</h1>
 
-		<body bgcolor="lightgrey">
+			<form action="/addemp/results" autocomplete="on" method = "POST" enctype="multipart/form-data" class="addEmpFormClass-bubble">
 
-			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
-
-				<button type="submit" formaction="/getemp" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br>
-
-		  		Employee ID:<br> <input style="height:25px;font-size:14pt; color:grey;" type="number" name="emp_id" autofocus size="40"><br><br>
-
-		  		First Name:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="first_name" ><br><br>
-
-		  		Last Name:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="last_name"><br><br>
-
-		  		Primary Skills:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="pri_skill"><br><br>
-
-		  		Location:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="location"><br><br>
-
-		  		Image: <input type=file name="emp_image_file" style="height:25px;font-size:14pt;color:grey;"> <br><br>
-
-		  		<button type="submit" style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">UPDATE DATABASE</button>
+				<!--<button type="submit" formaction="/getemp" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br> -->
+			<div class="addEmpFormClass-bubble-container">
+		  		<label for="emp_id" >Employee ID : </label>
+			 <input type="text" name="emp_id" autofocus size="40" />
+			</div>
+			
+			<div class="addEmpFormClass-bubble-container">
+				<label for="first_name">First Name:</label>
+		  		 <input  type="text" name="first_name" />
+			</div>
+			<div class="addEmpFormClass-bubble-container">
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name"/>
+			</div>
+			<div class="addEmpFormClass-bubble-container">
+				<label for="pri_skill">Primary Skills:</label> 
+				<input  type="text" name="pri_skill"/>
+			</div>
+			<div class="addEmpFormClass-bubble-container">
+				<label for="location">Location:</label>
+				<input  type="text" name="location"/>
+			</div>
+			<div class="addEmpFormClass-bubble-container">
+				<label for="emp_image_file">Image:</label> 
+				<input type=file name="emp_image_file" class="custom-file-input" /> <br><br>
+			</div>
+		  		<button type="submit"  class="addFormButton" autofocus multiple="multiple">UPDATE DATABASE</button>
 
 			</form>
 <a href="/about">About Us</a>
 		</body>
-
-	</font>
-</center>
 </html>
