@@ -169,6 +169,22 @@ def applyLeave():
 
     print("all modification done...")   
 
+@app.route("/deleteEmp", methods=["post"])
+def deleteEmp():
+    emp_id = request.form['emp_id']
+    delete_emp = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(delete_emp)
+        db_conn.commit()
+    except Exception as e:
+            return str(e)
+    finally:
+        cursor.close() 
+
+    return render_template("Homepage.html")
+
 @app.route("/backHome", methods=['POST'])
 def backHome():
     return render_template("Homepage.html")
