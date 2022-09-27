@@ -29,7 +29,9 @@ body {
 	text-decoration: none;
 	background-color: #414c55;
 	margin : auto;
+	margin-top : 35%;
 	width : 20%;
+	font-size: 17px;
 	border-style: hidden;
 }
 
