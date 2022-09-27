@@ -32,8 +32,8 @@ def AddEmp():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    pri_skill = request.form['pri_skill']
-    location = request.form['location']
+    training = request.form['training']
+    email = request.form['email']
     emp_image_file = request.files['emp_image_file']
 
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
@@ -44,7 +44,7 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_strainingkill, email))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
