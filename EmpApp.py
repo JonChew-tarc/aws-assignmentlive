@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from pymysql import connections
-from datetime import datetime
 import os
+from datetime import datetime
 import boto3
 from config import *
 
@@ -25,11 +25,6 @@ table = 'employee'
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('AddEmp.html',date=datetime.now())
-
-
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
 
 
 @app.route("/addemp/results", methods=['POST'])

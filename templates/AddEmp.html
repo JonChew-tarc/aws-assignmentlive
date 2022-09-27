@@ -27,10 +27,8 @@
 						<p>Payroll Calculator</p>
 					</a>
 				</div>
-				<div class="navbar-right">
-					{{ date.strftime("%A, %d %B, %Y at %H:%M") }}
-				</div>
-				
+				<div class="navbar-right"></div>
+				{{ date.strftime("%A, %d %B, %Y at %X") }}
 			</div>
 
 			<h1 id="AddEmpTitle" >Employee Database</h1>
@@ -67,6 +65,5 @@
 		  		<button type="submit"  class="addFormButton" autofocus multiple="multiple">UPDATE DATABASE</button>
 
 			</form>
-<a href="/about">About Us</a>
 		</body>
 </html>
