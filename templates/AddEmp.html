@@ -27,11 +27,13 @@
 						<p>Payroll Calculator</p>
 					</a>
 				</div>
-				<div class="navbar-right"></div>
-				{{ date.strftime("%A, %d %B, %Y at %X") }}
+				<div class="navbar-right">
+					{{ date.strftime("%A, %d %B, %Y at %X") }}
+				</div>
+				
 			</div>
 
-			<h1 id="AddEmpTitle" >Employee Database</h1>
+			<h1 id="AddEmpTitle" >Add New Employee</h1>
 
 			<form action="/addemp/results" autocomplete="on" method = "POST" enctype="multipart/form-data" class="addEmpFormClass-bubble">
 
@@ -53,12 +55,12 @@
 				<input type="text" name="last_name"/>
 			</div>
 			<div class="addEmpFormClass-bubble-container">
-				<div><label for="pri_skill">Primary Skills :</label></div> 
-				<input  type="text" name="pri_skill"/>
+				<div><label for="training">Training :</label></div> 
+				<input  type="text" name="training"/>
 			</div>
 			<div class="addEmpFormClass-bubble-container">
-				<div><label for="location">Location :</label></div>
-				<input  type="text" name="location"/>
+				<div><label for="email">Email :</label></div>
+				<input  type="text" name="email"/>
 			</div>
 			<div class="addEmpFormClass-bubble-container">
 				<div><label for="emp_image_file">Image :</label> </div>
