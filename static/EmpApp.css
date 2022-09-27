@@ -105,6 +105,11 @@ body {
 	color :white; 
 }
 
+.navbar-right p{
+	text-align : center;
+	text-align: center;
+}
+
 
 #AddEmpTitle {
 	top: 50%; 
