@@ -26,7 +26,7 @@ output = {}
 table = 'employee'
 employee_id = 1001
 
-@app.route("/addemp", methods=['GET', 'POST'])
+@app.route("/addemp/", methods=['GET', 'POST'])
 def addEmpPage():
     sql_query = "SELECT * FROM employee"
     cursor = db_conn.cursor()
@@ -41,6 +41,8 @@ def addEmpPage():
         return str(e)
 
 @app.route("/attendance/", methods=['GET', 'POST'])
+def getAttendancePage():
+    return render_template('Attendance.html', date = datetime.now())
 
 @app.route("/addemp/results", methods=['POST'])
 def AddEmp():
