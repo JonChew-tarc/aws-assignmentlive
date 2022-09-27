@@ -8,12 +8,13 @@ body {
 
 .navbar {
 	display: flex;
-	background-color: black;
 	height: 60px;
 }
 
 .navbar-left {
 	flex: 20%;
+	background-color: black;
+	margin: 0.5%; 
 /*	background-color: blue; */
 }
 
@@ -21,6 +22,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: start;
+	color: white;
 }
 
 .navbar-left img {
@@ -28,6 +30,7 @@ body {
 	width: 15%;
 	object-fit: contain;
 	margin: 0 200px 0 0;
+	color: white;
 }
 
 .navbar-left img:hover {
@@ -37,17 +40,20 @@ body {
 .navbar-middle {
 	display: flex;
 	flex: 60%;
+	margin: 0.5%; 
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-evenly;
+	background-color: black;
 }
 
 .navbar-middle a {
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 
 .navbar-middle p {
+	color: white;
 	font-size: 17px;
 	text-align: center;
 	font-weight: 500;
@@ -59,6 +65,8 @@ body {
 
 .navbar-right {
 	flex: 20%;
+	margin: 0.5%; 
+	background-color: black;
 	/*background-color: pink; */
 }
 
@@ -134,21 +142,10 @@ body {
 	height: 30px;
 }
 
-.addEmpFormClass-bubble-container button {
-	padding: 5px 10px;
-	font-size: 13px;
-	width: 30%;
-    display:block;
-	border-color: #f0f1f2;
-	background-color: #f6f6f6;
-	border-style: solid;
-	border-radius: 8px;
-	outline: none;
-	height: 30px;
-}
 
 .addFormButton{
     background-color: #52ab98;
+	width: 40%;
 	border: 20px ;
 	border-radius: 10px;
 	color: white;
