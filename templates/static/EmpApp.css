@@ -169,3 +169,60 @@ body {
 .custom-file-input:active::before {
  	background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
+/* add emp output*/
+
+.form-container {
+	margin: 20px 0 0 0;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height: 75vh;
+	background-color: #eceff4; 
+	border-radius: 15px;
+	align-self: center;
+	padding: 30px;
+}
+
+.form-container-add {
+	height: 50vh;
+}
+
+.body-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.body-container h1,h2,h3{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	margin: 0 0 20px 0;
+}
+
+.form-bubble-container-get {
+	text-align: center;
+	font-weight: 400;
+}
+
+.form-bubble-container-get p{
+	margin: 0 0 10px 0;
+}
+
+.form-container-get {
+	height: 40vh;
+}
+
+.form-container-get-output {
+	height: 40vh;
+}
+
+.form-container-attendance {
+	height: 30vh;
+}
+
+.form-container-payroll {
+	height: 35vh;
+
+}
