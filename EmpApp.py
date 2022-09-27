@@ -122,7 +122,7 @@ def Employee():
 
      return render_template("GetEmpOutput.html",result=result)
 
-@app.route("/applyLeave", method=['POST'])
+@app.route("/applyLeave", methods = ['POST'])
 def applyLeave():
     #let user pick the calendar
     #add into the database
@@ -134,7 +134,7 @@ def applyLeave():
     leaveEvidence = request.files['supportingDocument']
     
     
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO leaveEmployee VALUES (%s, %s, %s, %s)"
     select_emp = "SELECT emp_id FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
