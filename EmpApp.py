@@ -20,16 +20,28 @@ db_conn = connections.Connection(
 )
 output = {}
 table = 'employee'
+employee_id = 1001
 
+@app.route("/addemp/", methods=['GET', 'POST'])
+def addEmpPage():
+    sql_query = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+    try: 
+        cursor.execute(sql_query)
+        records = cursor.fetchall()
+        emp_id = employee_id + int(len(records))
+        cursor.close()
 
-@app.route("/", methods=['GET', 'POST'])
-def home():
-    return render_template('AddEmp.html',date=datetime.now())
+        return render_template('AddEmp.html',date=datetime.now(), emp_id = emp_id)
+    except Exception as e:
+        return str(e)
 
 
 @app.route("/addemp/results", methods=['POST'])
 def AddEmp():
-    emp_id = request.form['emp_id']
+
+    #emp_id = request.form['emp_id']
+
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     training = request.form['training']
@@ -44,7 +56,7 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_strainingkill, email))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, training, email))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
