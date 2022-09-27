@@ -9,6 +9,7 @@ body {
 .navbar {
 	display: flex;
 	height: 60px;
+	
 }
 
 .navbar-left {
@@ -16,6 +17,7 @@ body {
 	background-color: black;
 	margin: 0.5%; 
 /*	background-color: blue; */
+	border-radius: 15px;
 }
 
 .navbar-left a {
@@ -45,6 +47,7 @@ body {
 	align-items: center;
 	justify-content: space-evenly;
 	background-color: black;
+	border-radius: 15px;
 }
 
 .navbar-middle a {
@@ -68,6 +71,7 @@ body {
 	margin: 0.5%; 
 	background-color: black;
 	/*background-color: pink; */
+	border-radius: 15px;
 }
 
 
@@ -80,6 +84,8 @@ body {
 	font-weight: 700;
 	letter-spacing: 1px;
 	color: white;
+	width:100%;
+	text-align:center;
 	text-shadow: 1px 1px 1px #919191,
 		1px 2px 1px #919191,
 		1px 3px 1px #919191,
@@ -161,7 +167,7 @@ body {
 
 .addFormButton:hover {
     background-color: #0e614f;
-	font-size: 18px;
+	font-size: 16px;
 	text-shadow: 2px 2px #cec2c2;
 }
 .custom-file-input::-webkit-file-upload-button {
