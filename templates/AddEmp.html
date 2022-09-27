@@ -28,7 +28,7 @@
 					</button>
 				</div>
 				<div class="navbar-right">
-					{{ date.strftime("%A, %d %B, %Y at %X") }}
+					<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
 				</div>
 				
 			</div>
@@ -43,7 +43,7 @@
 					<label for="emp_id" >Employee ID : </label>
 				</div>
 		  		
-			 <input type="text" name="emp_id" autofocus size="40" />
+			 <input type="text" name="emp_id" value="{{empId}}" readonly="readonly"/>
 			</div>
 			
 			<div class="addEmpFormClass-bubble-container">
