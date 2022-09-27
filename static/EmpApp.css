@@ -134,6 +134,19 @@ body {
 	height: 30px;
 }
 
+.addEmpFormClass-bubble-container button {
+	padding: 5px 10px;
+	font-size: 13px;
+	width: 30%;
+    display:block;
+	border-color: #f0f1f2;
+	background-color: #f6f6f6;
+	border-style: solid;
+	border-radius: 8px;
+	outline: none;
+	height: 30px;
+}
+
 .addFormButton{
     background-color: #52ab98;
 	border: 20px ;
