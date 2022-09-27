@@ -158,6 +158,12 @@ body {
 	letter-spacing: 0.1em;
 	margin:auto ;
 }
+
+.addFormButton:hover {
+    background-color: #0e614f;
+	font-size: 18px;
+	text-shadow: 2px 2px #cec2c2;
+}
 .custom-file-input::-webkit-file-upload-button {
 	visibility: hidden;
 }
