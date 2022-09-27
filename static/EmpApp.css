@@ -13,6 +13,7 @@ body {
 }
 
 .navbar-left {
+	display: flex;
 	flex: 18%;
 	background-color: #414c55;
 	margin: 5px; 
@@ -29,10 +30,10 @@ body {
 	text-decoration: none;
 	background-color: #414c55;
 	margin : auto;
-	margin-top : 35%;
 	width : 20%;
 	font-size: 17px;
 	border-style: hidden;
+	align-items: center;
 }
 
 /*
@@ -93,9 +94,11 @@ body {
 
 
 .navbar-right {
+	display: flex;
 	flex: 18%;
 	margin: 5px; 
 	background-color: #414c55;
+	align-items: center;
 	/*background-color: pink; */
 	border-radius: 15px;
 	text-align : center;
