@@ -14,8 +14,8 @@ body {
 
 .navbar-left {
 	flex: 18%;
-	background-color: c8d8e4;
-	margin: 0.5%; 
+	background-color: #414c55;
+	margin: 5px; 
 /*	background-color: blue; */
 	border-radius: 15px;
 	text-align : center;
@@ -53,11 +53,11 @@ body {
 .navbar-middle {
 	display: flex;
 	flex: 60%;
-	margin: 0.5%; 
+	margin: 5px; 
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-evenly;
-	background-color: c8d8e4;
+	background-color: #414c55;
 	border-radius: 15px;
 }
 
@@ -88,8 +88,8 @@ body {
 
 .navbar-right {
 	flex: 18%;
-	margin: 0.5%; 
-	background-color: c8d8e4;
+	margin: 5px; 
+	background-color: #414c55;
 	/*background-color: pink; */
 	border-radius: 15px;
 	text-align : center;
