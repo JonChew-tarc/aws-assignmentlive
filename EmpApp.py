@@ -26,7 +26,7 @@ output = {}
 table = 'employee'
 employee_id = 1001
 
-@app.route("/addemp/", methods=['GET', 'POST'])
+@app.route("/addemp", methods=['GET', 'POST'])
 def addEmpPage():
     sql_query = "SELECT * FROM employee"
     cursor = db_conn.cursor()
@@ -40,6 +40,7 @@ def addEmpPage():
     except Exception as e:
         return str(e)
 
+@app.route("/attendance/", methods=['GET', 'POST'])
 
 @app.route("/addemp/results", methods=['POST'])
 def AddEmp():
