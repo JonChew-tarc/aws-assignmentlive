@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<center>
-	<font color="DodgerBlue" size="5" style="font-family: avenir">
-		<body bgcolor="lightgrey">
-			<h1>SAVE SUCCESSFUL</h1><br>
-			<h2>Following Employee has been added to the database</h2><br>
-			<h2>{{ name }}</h2><br>
-			<title>Add Emp Output</title>
-				<form action="http://3.134.115.108:80/" autocomplete="on" method = "GET">
-
-					<button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GO BACK</button><br><br>
-
-				</form>
-		</body>
-	</font>
-</center>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmpApp.css')}}" />
+	
+	
+	<!--<link rel="stylesheet" type="text/css" href="static/EmpApp.css" />-->
+	
+	<title>Successfully Added New Employee</title>
 </head>
 <body>
-
+	<div class="navbar">
+		<div class="navbar-left">
+			<a href="/">
+				<img src="{{ url_for('static', filename='img/home.png')}}"/>
+			</a>
+		</div>
+		<div class="navbar-middle">
+			<a href="/addemp/">
+				<p>Add Employees</p>
+			</a>
+			<a href="/getemp/">
+				<p>Get Employees</p>
+			</a>
+			<a href="/attendance/">
+				<p>Attendance</p>
+			</a>
+			<a href="/payroll/">
+				<p>Payroll Calculator</p>
+			</a>
+		</div>
+		<div class="navbar-right">
+			{{ date.strftime("%A, %d %B, %Y at %H:%M") }}
+		</div>
+	
+	</div>
+</div>
+	<div class="form-container form-container-add">
+		<div class="form-bubble body-container">
+			<h1>Employee successfully added</h1>
+			<h2>Following Employee has been added to the database</h2>
+			<h3>{{ name }}</h3>
+		
+		</div>
+		<div class="button-container">
+			<a href="/">
+				<button class="form-button">GO BACK</button>
+			</a>
+		</div>
+	</div>
 </body>
 </html>
