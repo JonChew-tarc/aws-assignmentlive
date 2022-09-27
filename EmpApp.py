@@ -168,7 +168,7 @@ def applyLeave():
 
     print("all modification done...")   
 
-@app.route("/backHome", method=['POST'])
+@app.route("/backHome", methods=['POST'])
 def backHome():
     return render_template("Homepage.html")
 
