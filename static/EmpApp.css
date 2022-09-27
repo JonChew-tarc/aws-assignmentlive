@@ -106,7 +106,7 @@ body {
 }
 
 .navbar-right p{
-	text-align : center;
+	align-items: center;
 	text-align: center;
 }
 
