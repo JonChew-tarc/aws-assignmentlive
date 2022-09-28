@@ -26,7 +26,7 @@ table = 'employee'
 def addEmpPage():
     return render_template("AddEmp.html", date=datetime.now())
 
-@app.route("/", methods=['POST'])
+@app.route("/")
 def home():
     return render_template('AddEmp.html',date=datetime.now())
 
