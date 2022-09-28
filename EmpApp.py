@@ -261,7 +261,7 @@ def CalpayRoll():
 #ROUTE TO PAYROLL
 @app.route("/payroll")
 def getPayroll():
-    return render_template("Payroll.html", date=datetime.now())
+    return render_template("Payroll.html")
 
 #ROUTE TO HOMEPAGE
 @app.route("/homepage")
