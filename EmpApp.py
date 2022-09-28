@@ -38,7 +38,16 @@ def addEmpPage():
 
 @app.route("/")
 def home():
-    return render_template('AddEmp.html',date=datetime.now(), emp_id)
+    sql_query = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+    try: 
+        cursor.execute(sql_query)
+        records = cursor.fetchall()
+        emp_id = employee_id + int(len(records))
+        cursor.close()
+        return render_template('AddEmployee.html', date=datetime.now(), empId = emp_id)
+    except Exception as e:
+        return str(e)
 
 
 @app.route("/about", methods=['POST'])
