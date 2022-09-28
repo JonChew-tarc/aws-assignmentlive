@@ -142,7 +142,7 @@ def Employee():
 
      return render_template("GetEmpOutput.html",result=result)
 
-@app.route("/applyLeave", method=['POST'])
+@app.route("/applyLeave", methods=['POST'])
 def applyLeave():
     #let user pick the calendar
     #add into the database
@@ -188,7 +188,7 @@ def applyLeave():
 
     print("all modification done...")   
 
-@app.route("/backHome", method=['POST'])
+@app.route("/backHome", methods=['POST'])
 def backHome():
     return render_template("Homepage.html")
 
