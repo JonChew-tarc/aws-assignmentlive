@@ -192,11 +192,11 @@ def applyLeave():
         cursor.close() 
 
     print("all modification done...")
-    return render_template("Homepage.html")   
+    return render_template("Homepage.html", date=datetime.now())   
 
 @app.route("/backHome", methods=['POST'])
 def backHome():
-    return render_template("Homepage.html")
+    return render_template("Homepage.html", date=datetime.now())
 
 
 @app.route("/attendance", methods=['GET','POST'])
@@ -219,6 +219,58 @@ def deleteEmp():
 
     print("all modification done...") 
     return render_template("GetEmp.html")
+
+@app.route("/payroll", methods=['POST'])
+def about():
+    return render_template('Payroll.html')
+
+#PAYROLL OUTPUT PAGE
+@app.route("/payroll/calculate", methods=['GET','POST'])
+def AddPayroll():
+    emp_id = request.form['emp_id']
+    working_hour = request.form['working_hour']
+    monthly_salary = request.form['monthly_salary']
+    annual_salary = request.form['annual_salary']
+
+    insert_sql = "INSERT INTO employeeSalary VALUES (%s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(insert_sql, (emp_id, working_hour, monthly_salary, annual_salary))
+        db_conn.commit()
+
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('Homepage.html', date=datetime.now())
+
+#PAYROLL PAGE
+@app.route("/payroll/results",methods=['GET','POST'])
+def CalpayRoll():
+
+    emp_id = int(request.form.get('emp_id'))
+    hourly_salary_rate = int(request.form.get('hourly_salary_rate'))
+    working_hour_per_day = int(request.form.get('working_hour_per_day'))
+    working_day_per_week = int(request.form.get('working_day_per_week'))
+
+    monthly_salary = hourly_salary_rate*working_hour_per_day*working_day_per_week*4 
+    annual_salary = monthly_salary*12
+
+    return render_template('PayrollOutput.html',emp_id=emp_id, monthly_salary= monthly_salary , annual_salary = annual_salary, working_hour_per_day = working_hour_per_day, date=datetime.now())
+
+#ROUTE TO PAYROLL
+@app.route("/payroll",methods=['GET','POST'])
+def getPayroll():
+    return render_template("Payroll.html", date=datetime.now())
+
+#ROUTE TO HOMEPAGE
+@app.route("/homepage",methods=['GET','POST'])
+def getHomepage():
+    return render_template("Homepage.html", date=datetime.now())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

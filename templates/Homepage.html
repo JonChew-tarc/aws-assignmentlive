@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmpApp.css')}}" />
+	<title>Homepage</title>
+</head>
+		
+
+		<body>
+			<div class="navbar">
+				<div class="navbar-left">
+					<a href="/homepage">
+						<p>Home</p>
+					</a>
+				</div>
+				<div class="navbar-middle">
+					<a href="/addemp/">
+						<p>Add Employees</p>
+					</a>
+					<a href="/getemp/">
+						<p>Get Empolyees</p>
+					</a>
+					<a href="/attendance/">
+						<p>Attendance</p>
+					</a>
+					<a href="/payroll/">
+						<p>Payroll Calculator</p>
+					</a>
+				</div>
+				<div class="navbar-right"></div>
+				{{ date.strftime("%A, %d %B, %Y at %X") }}
+			</div>
+
+			<h1 id="AddEmpTitle" class = "leaveTitle"style="text-align: center;" >Welcome to JonWaiFoo Employee Management System </h1>
+
+			<form autocomplete="on" method = "POST" enctype="multipart/form-data" class="addEmpFormClass-bubble">
+
+			<div class="homepageButtonFormClass-bubble-container">
+				<a href="/">
+				<button type="submit"  class="homepageButton" autofocus multiple="multiple">ADD EMPLOYEE</button>
+				</a>	
+			</div>
+			<div class="homepageButtonFormClass-bubble-container">
+				<a href="/getemp">
+				<button type="submit"  class="homepageButton" autofocus multiple="multiple">GET EMPLOYEE</button>
+				</a>	
+			</div>
+			<div class="homepageButtonFormClass-bubble-container">
+				<a href="/attendance">
+				<button type="submit"  class="homepageButton" autofocus multiple="multiple">ATTENDANCE</button>
+				</a>	
+			</div>
+			<div class="homepageButtonFormClass-bubble-container">
+				<a href="/leave">
+				<button type="submit"  class="homepageButton" autofocus multiple="multiple">LEAVE</button>
+				</a>	
+			</div>
+			<div class="homepageButtonFormClass-bubble-container" >
+				<a href="/payroll" >
+				<button type="submit" class="homepageButton" autofocus multiple="multiple">PAYROLL CALCULATION</button>
+				</a>	
+			</div>
+			
+			
+
+			</form>
+			
+<a href="/about">About Us</a>
+		</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmpApp.css')}}" />
+	<title>Payroll Calculator</title>
+</head>
+		
+
+		<body>
+			<div class="navbar">
+				<div class="navbar-left">
+					<a href="/">
+						<p>Home </p>
+					</a>
+				</div>
+				<div class="navbar-middle">
+					<a href="/addemp/">
+						<p>Add Employees</p>
+					</a>
+					<a href="/getemp/">
+						<p>Get Empolyees</p>
+					</a>
+					<a href="/attendance/">
+						<p>Attendance</p>
+					</a>
+					<a href="/payroll/">
+						<p>Payroll Calculator</p>
+					</a>
+				</div>
+				<div class="navbar-right"></div>
+				{{ date.strftime("%A, %d %B, %Y at %X") }}
+			</div>
+
+			<h1 id="AddEmpTitle" class="leaveTitle"  style="text-align: center;">Payroll Calculator</h1>
+
+			<form action="/payroll/calculate" autocomplete="on" method = "POST" enctype="multipart/form-data" class="addEmpFormClass-bubble">
+
+			<div class="addEmpFormClass-bubble-container">
+				<div><label for="emp_id" >Employee ID : </label></div>
+		  		
+			 <input type="number" name="emp_id" autofocus size="40" />
+			</div>
+			
+			<div class="addEmpFormClass-bubble-container">
+				<div><label for="hourly_salary_rate">Hourly Salary Rate :</label></div>
+		  		 <input  type="number" name="hourly_salary_rate" />
+			</div>
+			<div class="addEmpFormClass-bubble-container">
+				<div><label for="working_hour_per_day">Working Hour Per Day :</label></div>
+				<input type="number" name="working_hour_per_day"/>
+			</div>
+			<div class="addEmpFormClass-bubble-container">
+				<div><label for="working_day_per_week">Working Day Per Week :</label></div> 
+				<input  type="number" name="working_day_per_week"/>
+			</div>
+			<div class="payrollConfirmFormClass-bubble-container">
+				<button type="submit"  class="payrollConfirmButton" autofocus multiple="multiple">CALCULATE PAYROLL</button>
+			</div>
+			
+			
+
+			</form>
+			
+<a href="/about">About Us</a>
+		</body>
+</html>
