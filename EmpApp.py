@@ -25,7 +25,7 @@ s3 = boto3.resource('s3')
 s3_client = boto3.client('s3')
 
 
-@app.route("/addemp", methods=['POST'])
+@app.route("/addemp", methods=['GET', 'POST'])
 def addEmpPage():
     sql_query = "SELECT * FROM employee"
     cursor = db_conn.cursor()
@@ -157,6 +157,7 @@ def getPayroll():
 @app.route("/homepage")
 def getHomepage():
     return render_template("Homepage.html", date=datetime.now())
+
 
 @app.route("/applyLeave", methods=['POST'])
 def applyLeave():
@@ -293,7 +294,6 @@ def CalpayRoll():
     annual_salary = monthly_salary*12
 
     return render_template('PayrollOutput.html',emp_id=emp_id, monthly_salary= monthly_salary , annual_salary = annual_salary, working_hour_per_day = working_hour_per_day, date=datetime.now())
-
 
 
 if __name__ == '__main__':
