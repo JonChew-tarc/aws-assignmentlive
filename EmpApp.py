@@ -115,7 +115,7 @@ def AddEmp():
 
 @app.route("/getemp/")
 def getEmp():
-    return render_template('GetEmp.html')
+    return render_template('GetEmp.html', date=datetime.now())
 
 @app.route("/getemp/results",methods=['GET','POST'])
 def Employee():
@@ -146,7 +146,7 @@ def Employee():
 
 @app.route("/leave")
 def getLeave():
-    return render_template('LeaveEmp.html')
+    return render_template('LeaveEmp.html', date=datetime.now())
 
 #ROUTE TO PAYROLL
 @app.route("/payroll")
