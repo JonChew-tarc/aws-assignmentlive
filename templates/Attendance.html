@@ -20,14 +20,14 @@
                     row.appendChild(cell);
                 });
 
-                tableBody.appendChild(row);
+                tblBody.appendChild(row);
                 count++;
             });
             
         }
 
 			
-		</script>
+	</script>
 </head>
 <body onload="generateAttendanceTable({{tableContent}})"> 
 	<div class="navbar">
@@ -98,7 +98,7 @@
 		</table>
 	</div>
 
-	<div class="form-container form-container-get">
+	<div class="addEmpFormClass-bubble">
 		<form action="/attendance/output" autocomplete="on" method="POST" class="form-bubble">
 		<div class="form-bubble-container">
 			<label>Employee ID:</label>
