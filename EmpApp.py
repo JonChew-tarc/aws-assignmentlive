@@ -147,6 +147,16 @@ def Employee():
 def getLeave():
     return render_template('LeaveEmp.html')
 
+#ROUTE TO PAYROLL
+@app.route("/payroll")
+def getPayroll():
+    return render_template("Payroll.html")
+
+#ROUTE TO HOMEPAGE
+@app.route("/homepage")
+def getHomepage():
+    return render_template("Homepage.html")
+
 @app.route("/applyLeave", methods=['POST'])
 def applyLeave():
     #let user pick the calendar
@@ -258,15 +268,7 @@ def CalpayRoll():
 
     return render_template('PayrollOutput.html',emp_id=emp_id, monthly_salary= monthly_salary , annual_salary = annual_salary, working_hour_per_day = working_hour_per_day, date=datetime.now())
 
-#ROUTE TO PAYROLL
-@app.route("/payroll")
-def getPayroll():
-    return render_template("Payroll.html")
 
-#ROUTE TO HOMEPAGE
-@app.route("/homepage")
-def getHomepage():
-    return render_template("Homepage.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
