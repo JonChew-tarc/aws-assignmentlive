@@ -1,3 +1,4 @@
+from multiprocessing.resource_tracker import ResourceTracker
 from flask import Flask, render_template, request
 from pymysql import connections
 from datetime import datetime
@@ -141,6 +142,10 @@ def Employee():
     
 
      return render_template("GetEmpOutput.html",result=result)
+
+@app.route("/leave")
+def getLeave():
+    return render_template('LeaveEmp.html')
 
 @app.route("/applyLeave", methods=['POST'])
 def applyLeave():
