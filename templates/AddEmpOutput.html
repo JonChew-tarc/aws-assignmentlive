@@ -11,26 +11,45 @@
 <body>
 	<div class="navbar">
 		<div class="navbar-left">
-			<button href ="/">
-				Home
-			</button>
+			<a href ="/">
+				<button >
+					Home
+				</button>
+			</a>
+			
 		</div>
 		<div class="navbar-middle">
-			<button href="/addemp/">
-				Add Employees
-			</button>
-			<button href="/getemp/">
-				Get Employees
-			</button>
-			<button href="/attendance/">
+			<a href="/addemp">
+				<button >
+					Add Employees
+				</button>
+
+			</a>
+			
+			<a  href="/getemp">
+				<button>
+					Get Employees
+				</button>
+			</a>
+			
+			<a href="/attendance">
+			<button >
 				Attendance
 			</button>
-			<button href="/payroll/">
-				Employee Management
-			</button>
-			<button href="/payroll/">
-				Payroll Calculator
-			</button>
+			</a>
+			
+			<a href="/payroll">
+				<button >
+					Employee Management
+				</button>
+			</a>
+			
+			<a href="/payroll">
+				<button>
+					Payroll Calculator
+				</button>
+			</a>
+			
 		</div>
 		<div class="navbar-right">
 			<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
@@ -53,7 +72,7 @@
 		</div>
 		<div class="addFormButton">
 			<a href="/">
-				<button class="form-button">GO BACK</button>
+				<button class="form-button">Return back to Home</button>
 			</a>
 		</div>
 	</div>
