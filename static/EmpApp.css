@@ -397,6 +397,16 @@ body {
     border-radius: 15px;
 }
 
+.payrollBackFormClass-bubble-container a{
+    background-color: #f59292;
+    position: relative;
+	display: flex;
+	flex: 80%;
+	align-items: center;
+	margin: 10px 10px;
+    border-radius: 15px;
+}
+
 .homepageButtonFormClass-bubble-container{
     background-color: #a7bbfd;
     position: relative;
