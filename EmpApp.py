@@ -232,19 +232,18 @@ def getAttendancePage():
 @app.route("/attendance/output", methods=['GET', 'POST'])
 def notifyAttendancePage():
     emp_id = request.form['emp_id']
+    attendance = request.form['attendanceConf']
     cursor1 = db_conn.cursor()
     cursor2 = db_conn.cursor()
     cursor3 = db_conn.cursor()
     cursor4 = db_conn.cursor()
     
     
-    get_status = "SELECT attend FROM attendance WHERE emp_id = %s"
     get_firstname = "SELECT first_name FROM employee WHERE emp_id = %s"
     get_lastname = "SELECT last_name FROM employee WHERE emp_id = %s"
     check_attendance = "UPDATE attendance SET attend = %s WHERE emp_id = %s"
     
     try:
-        cursor1.execute(get_status,(emp_id))
         cursor2.execute(get_firstname,(emp_id))
         cursor3.execute(get_lastname,(emp_id))
         db_conn.commit()
@@ -256,23 +255,16 @@ def notifyAttendancePage():
     firstname = str(cursor2.fetchone())
     lastname = str(cursor3.fetchone())
     resultOutput = ""
-    try:
-        if(result == "('In')"):
-            cursor4.execute(check_attendance,("Out", emp_id))
-            resultOutput = "Checked Out"
-        elif(result == "('Out')"):
-            cursor4.execute(check_attendance,("In", emp_id))
-            resultOutput = "Checked In"
-
-    except Exception as e:
-        return str(e)
     
+    cursor4.execute(check_attendance,( attendance, emp_id))
+    resultOutput = attendance
+
     cursor1.close() 
     cursor2.close() 
     cursor3.close() 
     cursor4.close() 
     print("all modification done...") 
-    return render_template('AttendanceOutput.html', date = datetime.now(), empName = firstname, status = resultOutput)
+    return render_template('AttendanceOutput.html', date = datetime.now(), empName = firstname + " " + lastname, status = resultOutput)
 
 
 
