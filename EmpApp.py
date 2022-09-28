@@ -189,7 +189,7 @@ def applyLeave():
     #let user pick the calendar
     #add into the database
     #show feedback message (from invisible to visible [label])
-    emp_id = request.form['emp_id'] #i think this is session, need this session to identify which employee
+    emp_id = request.form['emp_id'] #i think this is session, need this session to id entify which employee
     dateOfLeaveStart = request.form['leaveStartDate']
     dateOfLeaveEnd = request.form['leaveEndDate']
     leaveReason = request.form['leaveReason']
