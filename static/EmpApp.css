@@ -416,3 +416,16 @@ body {
 	margin:auto ;
 	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.body-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.body-container h1,h2,h3{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	margin: 0 0 20px 0;
+}
