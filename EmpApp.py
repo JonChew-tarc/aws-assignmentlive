@@ -158,6 +158,11 @@ def getPayroll():
 def getHomepage():
     return render_template("Homepage.html", date=datetime.now())
 
+#ROUTE TO ABOUTUS
+@app.route("/aboutus")
+def getAboutUs():
+    return render_template("AboutUs.html", date=datetime.now())
+
 
 @app.route("/applyLeave", methods=['POST'])
 def applyLeave():
