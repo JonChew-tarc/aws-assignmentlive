@@ -236,7 +236,7 @@ def notifyAttendancePage():
     cursor2 = db_conn.cursor()
     cursor3 = db_conn.cursor()
     cursor4 = db_conn.cursor()
-    db_conn.commit()
+    
     
     get_status = "SELECT attend FROM attendance WHERE emp_id = %s"
     get_firstname = "SELECT first_name FROM employee WHERE emp_id = %s"
@@ -245,8 +245,9 @@ def notifyAttendancePage():
     
     try:
         cursor1.execute(get_status,(emp_id))
-        cursor2.execute(get_status,(emp_id))
-        cursor3.execute(get_status,(emp_id))
+        cursor2.execute(get_firstname,(emp_id))
+        cursor3.execute(get_lastname,(emp_id))
+        db_conn.commit()
         
     except Exception as e:
         return str(e)
@@ -262,6 +263,7 @@ def notifyAttendancePage():
         else:
             cursor4.execute(check_attendance,("In", emp_id))
             resultOutput = "Checked In"
+        db_conn.commit()
     except Exception as e:
         return str(e)
     
