@@ -6,7 +6,7 @@
 
 	<script>
 
-		function generateAttendanceTable(){
+		function generateAttendanceTable(tableData){
 			const tbl = document.createElement("table");
 			const tblBody = document.createElement("tbody");
 
@@ -39,7 +39,7 @@
 		
 		</script>
 </head>
-<body>
+<body onload="generateAttendanceTable({{tableContent}})"> 
 	<div class="navbar">
 		<div class="navbar-left">
 			<a href ="/">
@@ -88,6 +88,26 @@
 	
 	</div>
 </div>
+
+	<div class="table-container">
+		<table style="background-color: dimgrey; color : white">
+			<tr>
+				<th>
+					Employee ID
+				</th>
+				<th>
+					Employee Name
+				</th>
+				<th>
+					Status
+				</th>
+			</tr>
+			<tbody id="tableContent">
+
+			</tbody>
+		</table>
+	</div>
+
 	<div class="form-container form-container-get">
 		<form action="/attendance/output" autocomplete="on" method="POST" class="form-bubble">
 		<div class="form-bubble-container">

@@ -63,22 +63,20 @@
 				<h1>Employee successfully added</h1>
 			</span>
 			<span>
-				<h2>Following Employee has been added to the database</h2>
+				<h2>Employee {{empName}} has been added to the database</h2>
 			</span>
 		<br />
-			<div>
+			<div style="display:block">
 				{% if profilePicList %}
 				<img  src="{{profilePicList[0]}}" alt="profilepic" width="230" height="290" style="border-radius: 50%">
 				{% endif %}
 			</div>
 			
-			<br />
-
-			<h3>{{empName}}</h3>
+			
 		
 		</div>
 		
-			<a href="/">
+			<a href="/" style ="margin:auto;margin-top : 20px;">
 				<button class="addFormButton">Return back to Home</button>
 			</a>
 		
