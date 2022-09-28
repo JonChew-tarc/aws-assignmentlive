@@ -242,7 +242,7 @@ body {
 	background-color: #ffffff;
 	border-radius: 15px;
 	padding: 15px;
-	display: flex;
+	display: block;
 	flex-direction: row;
 	flex-wrap: wrap;
 	width:80%;
@@ -264,6 +264,10 @@ body {
 
 .form-container-add {
 	height: 50vh;
+}
+
+.form-container-add a{
+	text-decoration: none;
 }
 
 .body-container {
