@@ -143,7 +143,7 @@ def Employee():
 
      return render_template("GetEmpOutput.html",result=result)
 
-@app.route("/leave")
+@app.route("/leave/")
 def getLeave():
     return render_template('LeaveEmp.html')
 
