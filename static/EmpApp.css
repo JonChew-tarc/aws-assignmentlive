@@ -27,6 +27,9 @@ body {
 	align-items: center;
 }
 
+.navbar-left a{
+	width:80%;
+}
 .navbar-left button {
 	display: flex;
 	align-items: center;
