@@ -42,6 +42,12 @@
 		<div class="form-bubble body-container">
 			<h1>Employee successfully added</h1>
 			<h2>Following Employee has been added to the database</h2>
+			
+				{% if profilePic %}
+				<img class="img-fluid" src="{{profilePicList[0]}}" alt="profilepic" width="230" height="290" style="border-radius: 50%">
+				{% endif %}
+			
+
 			<h3>{{empName}}</h3>
 		
 		</div>

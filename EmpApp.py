@@ -21,6 +21,9 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee'
 employee_id = 1001
+s3 = boto3.resource('s3')
+s3_client = boto3.client('s3')
+
 
 @app.route("/addemp", methods=['POST'])
 def addEmpPage():
@@ -77,12 +80,12 @@ def AddEmp():
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-        s3 = boto3.resource('s3')
+        #s3 = boto3.resource('s3')
 
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
-            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            bucket_location = s3_client.get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
             if s3_location is None:
@@ -94,6 +97,14 @@ def AddEmp():
                 s3_location,
                 custombucket,
                 emp_image_file_name_in_s3)
+            
+            profilePicList = []
+
+            public_url = s3_client.generate_presigned_url('get_object', 
+                                                        Params = {'Bucket': custombucket, 
+                                                                    'Key': emp_image_file_name_in_s3})
+
+            profilePicList.append(public_url)
 
         except Exception as e:
             return str(e)
@@ -102,7 +113,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddEmpOutput.html', date = datetime.now(), empName = emp_name)
+    return render_template('AddEmpOutput.html', date = datetime.now(), empName = emp_name, profilePicList = profilePicList)
 
 
 if __name__ == '__main__':
