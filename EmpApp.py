@@ -192,7 +192,8 @@ def applyLeave():
     finally:
         cursor.close() 
 
-    print("all modification done...")   
+    print("all modification done...") 
+    return render_template("AddEmp.html")  
 
 @app.route("/backHome", methods=['POST'])
 def backHome():
