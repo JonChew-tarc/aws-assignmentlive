@@ -73,7 +73,7 @@ def AddEmp():
     try:
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, training, email))
-        cursor.execute(insertAtt_sql, (emp_id, "Checked Out"))
+        cursor.execute(insertAtt_sql, (emp_id, "Out"))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -256,11 +256,11 @@ def notifyAttendancePage():
     lastname = str(cursor3.fetchone())
     resultOutput = ""
     try:
-        if(result == "Checked In"):
-            cursor4.execute(check_attendance,("Checked Out", emp_id))
+        if(result == "In"):
+            cursor4.execute(check_attendance,("Out", emp_id))
             resultOutput = "Checked Out"
         else:
-            cursor4.execute(check_attendance,("Checked In", emp_id))
+            cursor4.execute(check_attendance,("In", emp_id))
             resultOutput = "Checked In"
     except Exception as e:
         return str(e)
@@ -270,7 +270,7 @@ def notifyAttendancePage():
     cursor3.close() 
     cursor4.close() 
     print("all modification done...") 
-    return render_template('AttendanceOutput.html', date = datetime.now(), empname = firstname + " " + lastname, status = resultOutput)
+    return render_template('AttendanceOutput.html', date = datetime.now(), empName = firstname + " " + lastname, status = resultOutput)
 
 
 
