@@ -20,15 +20,25 @@ db_conn = connections.Connection(
 )
 output = {}
 table = 'employee'
-
+employee_id = 1001
 
 @app.route("/addemp", methods=['POST'])
 def addEmpPage():
-    return render_template("AddEmp.html", date=datetime.now())
+    sql_query = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+    try: 
+        cursor.execute(sql_query)
+        records = cursor.fetchall()
+        emp_id = employee_id + int(len(records))
+        cursor.close()
+        return render_template('AddEmployee.html', date=datetime.now(), empId = emp_id)
+    except Exception as e:
+        return str(e)
+    
 
 @app.route("/")
 def home():
-    return render_template('AddEmp.html',date=datetime.now())
+    return render_template('AddEmp.html',date=datetime.now(), emp_id)
 
 
 @app.route("/about", methods=['POST'])
@@ -83,7 +93,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddEmpOutput.html', name=emp_name)
+    return render_template('AddEmpOutput.html', fname=first_name, lname = last_name)
 
 
 if __name__ == '__main__':
