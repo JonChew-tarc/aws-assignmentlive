@@ -209,11 +209,11 @@ def applyLeave():
         cursor.close() 
 
     print("all modification done...") 
-    return render_template("AddEmp.html")  
+    return render_template("Homepage.html", date=datetime.now())  
 
 @app.route("/backHome", methods=['POST'])
 def backHome():
-    return render_template("Homepage.html")
+    return render_template("Homepage.html", date=datetime.now())
 
 @app.route("/attendance", methods=['GET','POST'])
 def getAttendancePage():
