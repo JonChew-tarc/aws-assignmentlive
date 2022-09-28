@@ -230,7 +230,7 @@ def getAttendancePage():
     return render_template("Attendance.html", date=datetime.now(), tableContent = arr)
 
 @app.route("/attendance/outputIn", methods=['GET', 'POST'])
-def notifyAttendancePage():
+def notifyAttendanceInPage():
     emp_id = request.form['emp_id']
     check_in = "UPDATE attendance SET attend = Checked In WHERE emp_id = %s "
     cursor = db_conn.cursor()
@@ -246,7 +246,7 @@ def notifyAttendancePage():
     return render_template("AttendanceOutput.html", status = "Checked In")
 
 @app.route("/attendance/outputOut", methods=['GET', 'POST'])
-def notifyAttendancePage():
+def notifyAttendanceOutPage():
     emp_id = request.form['emp_id']
     check_out = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s "
     cursor = db_conn.cursor()
