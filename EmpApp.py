@@ -257,10 +257,10 @@ def notifyAttendancePage():
     lastname = str(cursor3.fetchone())
     resultOutput = ""
     try:
-        if(result == "('In'),"):
+        if(result == "('In')"):
             cursor4.execute(check_attendance,("Out", emp_id))
             resultOutput = "Checked Out"
-        elif(result == "('Out'),"):
+        elif(result == "('Out')"):
             cursor4.execute(check_attendance,("In", emp_id))
             resultOutput = "Checked In"
 
