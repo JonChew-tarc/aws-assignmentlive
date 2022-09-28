@@ -260,10 +260,10 @@ def notifyAttendancePage():
         if(result == "In"):
             cursor4.execute(check_attendance,("Out", emp_id))
             resultOutput = "Checked Out"
-        else:
+        elif(result == "Out"):
             cursor4.execute(check_attendance,("In", emp_id))
             resultOutput = "Checked In"
-        db_conn.commit()
+
     except Exception as e:
         return str(e)
     
