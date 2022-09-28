@@ -277,17 +277,6 @@ def deleteEmp():
         cursor.close() 
 
     print("all modification done...") 
-    return render_template("GetEmp.html")
-
-    try:
-        cursor.execute(delete_emp)
-        db_conn.commit()
-    except Exception as e:
-        return str(e)
-    finally:
-        cursor.close() 
-
-    print("all modification done...") 
     return render_template('Homepage.html', date=datetime.now())
 
 #PAYROLL OUTPUT PAGE
