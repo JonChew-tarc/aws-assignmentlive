@@ -192,11 +192,19 @@ def applyLeave():
 def backHome():
     return render_template("Homepage.html")
 
+<<<<<<< HEAD
+=======
+@app.route("/attendance", methods=['GET','POST'])
+def getAttendancePage():
+    return render_template("Attendance.html", date=datetime.now())
+
+>>>>>>> 5c9dd2abc3072b3c650accb3e0a28e42523181c8
 @app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
     emp_id = request.form['emp_id'] 
     delete_emp = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
+<<<<<<< HEAD
 
     try:
         cursor.execute(delete_emp)
@@ -208,6 +216,19 @@ def deleteEmp():
 
     print("all modification done...") 
     return render_template("GetEmp.html")
+=======
+>>>>>>> 5c9dd2abc3072b3c650accb3e0a28e42523181c8
 
+    try:
+        cursor.execute(delete_emp)
+        db_conn.commit()
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close() 
+
+    print("all modification done...") 
+    return render_template("GetEmp.html")
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

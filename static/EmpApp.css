@@ -14,12 +14,12 @@ body {
 
 .navbar a{
 	text-decoration : none;
-	width : 20%;
+	width : 18%;
 }
 
 .navbar-left {
 	display: flex;
-	flex: 18%;
+	flex: 14%;
 	background-color: #414c55;
 	margin: 5px; 
 /*	background-color: blue; */
@@ -35,11 +35,13 @@ body {
 	text-decoration: none;
 	background-color: #414c55;
 	margin : auto;
-	width : 20%;
+	width : 100%;
 	font-size: 17px;
 	border-style: hidden;
 	align-items: center;
 	padding:10px;
+	text-align: center;
+	margin-left: 5px;
 }
 
 /*
@@ -58,7 +60,7 @@ body {
 	text-align: center;
 	font-weight: 600;
 	background-color: black;
-	width:20%;
+	width:100%;
 }
 
 .navbar-left img:hover {
@@ -68,7 +70,7 @@ body {
 
 .navbar-middle {
 	display: flex;
-	flex: 60%;
+	flex: 68%;
 	margin: 5px; 
 	flex-direction: row;
 	align-items: center;
@@ -83,7 +85,7 @@ body {
 	font-size: 17px;
 	text-align: center;
 	font-weight: 500;
-	margin:10px;
+	margin:5px;
 	background-color: #414c55;
 	padding : 5px;
 	width : 100%;
@@ -92,7 +94,7 @@ body {
 
 .navbar-middle button:hover {
 	color: white;
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 	font-weight: 600;
 	cursor:pointer;
@@ -102,7 +104,7 @@ body {
 
 .navbar-right {
 	display: flex;
-	flex: 18%;
+	flex: 14%;
 	margin: 5px; 
 	background-color: #414c55;
 	align-items: center;
@@ -242,7 +244,7 @@ body {
 	background-color: #ffffff;
 	border-radius: 15px;
 	padding: 15px;
-	display: flex;
+	display: block;
 	flex-direction: row;
 	flex-wrap: wrap;
 	width:80%;
@@ -264,6 +266,10 @@ body {
 
 .form-container-add {
 	height: 50vh;
+}
+
+.form-container-add a{
+	text-decoration: none;
 }
 
 .body-container {
