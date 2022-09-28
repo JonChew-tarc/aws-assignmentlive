@@ -142,7 +142,7 @@ def Employee():
         cursor.close()
     
 
-     return render_template("GetEmpOutput.html",result=result)
+     return render_template("GetEmpOutput.html",result=result, date=datetime.now())
 
 @app.route("/leave")
 def getLeave():
