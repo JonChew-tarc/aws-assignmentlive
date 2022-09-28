@@ -4,6 +4,32 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmpApp.css')}}" />
 	<title>Attendance</title>
 
+	<style>
+		table {
+                border-collapse: collapse;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                text-align: center;
+                width: 95%;
+            }
+
+		tr {
+			border: 2px solid grey;
+			background-color: white;
+		}
+		.id {
+                width: 15%;
+        }
+		.header {
+                background-color: dodgerblue;
+                border: 2px solid black;
+                color: white;
+            }
+		.child {
+                width: 30%;
+            }
+
+	</style>
 	<script>
 
 		function generateAttendanceTable(tableData){
@@ -81,14 +107,14 @@
 
 	<div class="table-container">
 		<table style="background-color: dimgrey; color : white">
-			<tr>
-				<th>
+			<tr class = "header">
+				<th class = "id">
 					Employee ID
 				</th>
-				<th>
+				<th class = "child">
 					Employee Name
 				</th>
-				<th>
+				<th class = "child">
 					Status
 				</th>
 			</tr>
@@ -98,15 +124,21 @@
 		</table>
 	</div>
 
-	<div class="addEmpFormClass-bubble">
-		<form action="/attendance/output" autocomplete="on" method="POST" class="form-bubble">
-		<div class="form-bubble-container">
-			<label>Employee ID:</label>
+	<div class="addEmpFormClass">
+		<form action="/attendance" autocomplete="on" method="POST" class="addEmpFormClass-bubble">
+		<div class="addEmpFormClass-bubble-container">
+			<div>
+				<label for="emp_id" >Employee ID : </label>
+			</div>
 			<input type="number" name="emp_id" autofocus size="40">
 		</div>
+
 				<div class="button-container1">
+					<a href="/attendance/output">
 						<button type="submit" formaction="/attendance/checkIn" class="form-button">CHECK IN</button>
-						<a href="/attendance/output">
+					</a>
+						
+				<a href="/attendance/output">
 					<button type="submit" class="form-button">CHECK OUT</button>
 				</a>
 					</div>
