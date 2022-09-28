@@ -181,7 +181,7 @@ def getAboutUs():
                                                             'Key': "aboutus.jpg"})
 
     profilePicList.append(public_url)
-    return render_template("AboutUs.html", date=datetime.now(), img = profilePicList)
+    return render_template("AboutUs2.html", date=datetime.now(), img = profilePicList)
 
 
 @app.route("/applyLeave", methods=['POST'])
