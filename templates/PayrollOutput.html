@@ -37,8 +37,8 @@
 
 				<!--<button type="submit" formaction="/getemp" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br> -->
 			<div class="addEmpFormClass-bubble-container">
-				<div><label for="emp_id" >Employee ID : </label></div>
-				<label name="emp_id" id="emp_id_id">{{emp_id}}</label>
+				<div><label>Employee ID : </label></div>
+				<label id="emp_id_id">{{emp_id}}</label>
 			</div>
 			<div class="addEmpFormClass-bubble-container">
 				<div><label for="working_hour" id = "working_hour_id">Working Hours :</label></div>
@@ -64,15 +64,12 @@
 				</div>
 			</form>
 
-			<input type="hidden" name="emp_id" value="" id="hidden_emp_id" />
-			<input type="hidden" name="working_hour_per_day" value="" id="hidden_working_hour_per_day" />
-			<input type="hidden" name="monthly_salary" value="" id="hidden_monthly_salary" />
-			<input type="hidden" name="annual_salary" value="" id="hidden_annual_salary" />
+			<input type="hidden" name="emp_id" value="" id="hidden_emp_id" value={{emp_id}}>
+			<input type="hidden" name="working_hour_per_day" value={{working_hour_per_day}} id="hidden_working_hour_per_day" />
+			<input type="hidden" name="monthly_salary" value={{monthly_salary}} id="hidden_monthly_salary" />
+			<input type="hidden" name="annual_salary" value={{annual_salary}} id="hidden_annual_salary" />
 		
-		<javascript>
-			document.getElementById("hidden_emp_id").value = emp_id_id;
-			alert(document.getElementById("hidden_emp_id").value);
-		</javascript>
+	
 
 			
 <a href="/about">About Us</a>
