@@ -33,7 +33,6 @@ body {
 .navbar-left button {
 	display: flex;
 	align-items: center;
-	justify-content: start;
 	color: white;
 	text-decoration: none;
 	background-color: #414c55;
@@ -64,6 +63,7 @@ body {
 	font-weight: 600;
 	background-color: black;
 	width:100%;
+	padding : 12px;
 }
 
 .navbar-left img:hover {
@@ -102,6 +102,7 @@ body {
 	font-weight: 600;
 	cursor:pointer;
 	background-color: black;
+	padding : 12px;
 }
 
 
