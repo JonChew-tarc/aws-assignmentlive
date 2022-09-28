@@ -272,7 +272,7 @@ def notifyAttendancePage():
     cursor3.close() 
     cursor4.close() 
     print("all modification done...") 
-    return render_template('AttendanceOutput.html', date = datetime.now(), empName = (firstname + " " + lastname), status = resultOutput)
+    return render_template('AttendanceOutput.html', date = datetime.now(), empName = firstname, status = resultOutput)
 
 
 
