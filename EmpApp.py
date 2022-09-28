@@ -234,34 +234,44 @@ def notifyAttendancePage():
     emp_id = request.form['emp_id']
     cursor1 = db_conn.cursor()
     cursor2 = db_conn.cursor()
+    cursor3 = db_conn.cursor()
+    cursor4 = db_conn.cursor()
     db_conn.commit()
     
     get_status = "SELECT attend FROM attendance WHERE emp_id = %s"
+    get_firstname = "SELECT first_name FROM employee WHERE emp_id = %s"
+    get_lastname = "SELECT last_name FROM employee WHERE emp_id = %s"
     check_attendance = "UPDATE attendance SET attend = %s WHERE emp_id = %s"
     
     try:
         cursor1.execute(get_status,(emp_id))
+        cursor2.execute(get_status,(emp_id))
+        cursor3.execute(get_status,(emp_id))
         
     except Exception as e:
         return str(e)
 
     result = str(cursor1.fetchone())
+    firstname = str(cursor2.fetchone())
+    lastname = str(cursor3.fetchone())
     resultOutput = ""
     try:
         if(result == "Checked In"):
-            cursor2.execute(check_attendance,("Checked Out", emp_id))
+            cursor4.execute(check_attendance,("Checked Out", emp_id))
             resultOutput = "Checked Out"
         else:
-            cursor2.execute(check_attendance,("Checked In", emp_id))
+            cursor4.execute(check_attendance,("Checked In", emp_id))
             resultOutput = "Checked In"
     except Exception as e:
         return str(e)
     
     cursor1.close() 
     cursor2.close() 
+    cursor3.close() 
+    cursor4.close() s
 
     print("all modification done...") 
-    return render_template('AttendanceOutput.html', date = datetime.now(), status = resultOutput)
+    return render_template('AttendanceOutput.html', date = datetime.now(), empname = firstname + " " + lastname, status = resultOutput)
 
 
 
