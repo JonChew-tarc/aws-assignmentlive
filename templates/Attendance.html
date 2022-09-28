@@ -109,7 +109,7 @@
 
 	<div class="addEmpFormClass">
 
-		<form action="/attendance" autocomplete="on" method="POST" class="addEmpFormClass-bubble">
+		<form action="/attendance/output " autocomplete="on" method="POST" class="addEmpFormClass-bubble">
 			<div class="table-container">
 				<table style="background-color: dimgrey; color : black">
 					<tr class = "header">
@@ -139,14 +139,10 @@
 			<input type="text" name="emp_id" autofocus size="40">
 		</div>
 
-				<div class="addEmpFormClass-bubble-container">
-					<a href="/attendance/outputIn" style="width:40%">
-						<button type="submit" class="addEmpFormButton">CHECK IN</button>
+				<div class="addEmpFormClass-bubble-container" style="justify-content: space-evenly;">
+					<a style="width:40%">
+						<button type="submit" class="addEmpFormButton">CHECK IN/OUT</button>
 					</a>
-						
-				<a href="/attendance/outputOut" style="width:40%">
-					<button type="submit" class="addEmpFormButton">CHECK OUT</button>
-				</a>
 					</div>
 		</form>
 		

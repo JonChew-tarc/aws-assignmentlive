@@ -229,37 +229,40 @@ def getAttendancePage():
 
     return render_template("Attendance.html", date=datetime.now(), tableContent = arr)
 
-@app.route("/attendance/outputIn", methods=['GET', 'POST'])
-def notifyAttendanceInPage():
+@app.route("/attendance/output", methods=['GET', 'POST'])
+def notifyAttendancePage():
     emp_id = request.form['emp_id']
-    check_in = "UPDATE attendance SET attend = Checked In WHERE emp_id = %s"
-    cursor = db_conn.cursor()
+    cursor1 = db_conn.cursor()
+    cursor2 = db_conn.cursor()
+    db_conn.commit()
+    
+    get_status = "SELECT attend FROM attendance WHERE emp_id = %s"
+    check_attendance = "UPDATE attendance SET attend = %s WHERE emp_id = %s"
+    
     try:
-        cursor.execute(check_in,(emp_id))
-        db_conn.commit()
+        cursor1.execute(get_status,(emp_id))
+        
     except Exception as e:
         return str(e)
-    finally:
-        cursor.close() 
 
-    print("all modification done...") 
-    return render_template("AttendanceOutput.html", status = "Checked In")
-
-@app.route("/attendance/outputOut", methods=['POST'])
-def notifyAttendanceOutPage():
-    emp_id = request.form['emp_id']
-    check_out = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s"
-    cursor = db_conn.cursor()
+    result = str(cursor1.fetchone())
+    resultOutput = ""
     try:
-        cursor.execute(check_out,(emp_id))
-        db_conn.commit()
+        if(result == "Checked In"):
+            cursor2.execute(check_attendance,("Checked Out", emp_id))
+            resultOutput = "Checked Out"
+        else:
+            cursor2.execute(check_attendance,("Checked In", emp_id))
+            resultOutput = "Checked In"
     except Exception as e:
         return str(e)
-    finally:
-        cursor.close() 
+    
+    cursor1.close() 
+    cursor2.close() 
 
     print("all modification done...") 
-    return render_template("AttendanceOutput.html", status = "Checked Out")
+    return render_template("AttendanceOutput.html", status = resultOutput)
+
 
 
 @app.route("/deleteEmp", methods=['POST'])
