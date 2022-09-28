@@ -7,36 +7,26 @@
 	<script>
 
 		function generateAttendanceTable(tableData){
-			const tbl = document.createElement("table");
-			const tblBody = document.createElement("tbody");
+			var count = 0;
+			var tblBody = document.getElementById("tableContent")
+			tableData.forEach(function(rowData) {
+                var row = document.createElement('tr');
 
-			// creating all cells
-			for (let i = 0; i < 2; i++) {
-				// creates a table row
-				const row = document.createElement("tr");
+                rowData.forEach(function(cellData) {
+                    var cell = document.createElement('td');
 
-				for (let j = 0; j < 2; j++) {
-				// Create a <td> element and a text node, make the text
-				// node the contents of the <td>, and put the <td> at
-				// the end of the table row
-				const cell = document.createElement("td");
-				const cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
-				cell.appendChild(cellText);
-				row.appendChild(cell);
-				}
+                    cell.appendChild(document.createTextNode(cellData));
+                    
+                    row.appendChild(cell);
+                });
 
-				// add the row to the end of the table body
-				tblBody.appendChild(row);
-			}
+                tableBody.appendChild(row);
+                count++;
+            });
+            
+        }
 
-			// put the <tbody> in the <table>
-			tbl.appendChild(tblBody);
-			// appends <table> into <body>
-			document.body.appendChild(tbl);
-			// sets the border attribute of tbl to '2'
-			tbl.setAttribute("border", "2");
-}
-		
+			
 		</script>
 </head>
 <body onload="generateAttendanceTable({{tableContent}})"> 
