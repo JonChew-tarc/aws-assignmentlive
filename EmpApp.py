@@ -216,7 +216,7 @@ def getAttendancePage():
 
     cursor.close()
 
-    return render_template("Attendance.html", date=datetime.now())
+    return render_template("Attendance.html", date=datetime.now(), tableContent = arr)
 
 @app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
