@@ -1,4 +1,3 @@
-from multiprocessing.resource_tracker import ResourceTracker
 from flask import Flask, render_template, request
 from pymysql import connections
 from datetime import datetime
@@ -65,6 +64,7 @@ def AddEmp():
     emp_image_file = request.files['emp_image_file']
 
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insertAtt_sql = "INSERT INTO attendance VALUES (%s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -73,6 +73,7 @@ def AddEmp():
     try:
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, training, email))
+        cursor.execute(insertAtt_sql, (emp_id, "Checked Out"))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -147,16 +148,6 @@ def Employee():
 def getLeave():
     return render_template('LeaveEmp.html')
 
-#ROUTE TO PAYROLL
-@app.route("/payroll")
-def getPayroll():
-    return render_template("Payroll.html")
-
-#ROUTE TO HOMEPAGE
-@app.route("/homepage")
-def getHomepage():
-    return render_template("Homepage.html")
-
 @app.route("/applyLeave", methods=['POST'])
 def applyLeave():
     #let user pick the calendar
@@ -201,16 +192,30 @@ def applyLeave():
     finally:
         cursor.close() 
 
-    print("all modification done...")
-    return render_template("Homepage.html", date=datetime.now())   
+    print("all modification done...") 
+    return render_template("AddEmp.html")  
 
 @app.route("/backHome", methods=['POST'])
 def backHome():
-    return render_template("Homepage.html", date=datetime.now())
-
+    return render_template("Homepage.html")
 
 @app.route("/attendance", methods=['GET','POST'])
 def getAttendancePage():
+    select_sql = "SELECT e.emp_id, e.first_name, e.last_name, a.attend FROM employee e, attendance a WHERE e.emp_id = a.emp_id"
+    cursor = db_conn.cursor()
+    cursor.execute(select_sql)
+    db_conn.commit()
+    result = cursor.fetchall()
+
+    arr = []
+    for col in range(len(result)):
+        arr.append([])
+        arr[col].append(result[col][0] )
+        arr[col].append(str(result[col][1]) + " " + str(result[col][2]))
+        arr[col].append(result[col][3])
+
+    cursor.close()
+
     return render_template("Attendance.html", date=datetime.now())
 
 @app.route("/deleteEmp", methods=['POST'])
@@ -230,45 +235,16 @@ def deleteEmp():
     print("all modification done...") 
     return render_template("GetEmp.html")
 
-#PAYROLL OUTPUT PAGE
-@app.route("/payroll/calculate", methods=['GET','POST'])
-def AddPayroll():
-    emp_id = request.form['emp_id']
-    working_hour = request.form['working_hour']
-    monthly_salary = request.form['monthly_salary']
-    annual_salary = request.form['annual_salary']
-
-    insert_sql = "INSERT INTO employeeSalary VALUES (%s, %s, %s, %s)"
-    cursor = db_conn.cursor()
-
     try:
-        cursor.execute(insert_sql, (emp_id, working_hour, monthly_salary, annual_salary))
+        cursor.execute(delete_emp)
         db_conn.commit()
-
     except Exception as e:
         return str(e)
-
     finally:
-        cursor.close()
+        cursor.close() 
 
-    print("all modification done...")
-    return render_template('Homepage.html', date=datetime.now())
-
-#PAYROLL PAGE
-@app.route("/payroll/results",methods=['GET','POST'])
-def CalpayRoll():
-
-    emp_id = int(request.form.get('emp_id'))
-    hourly_salary_rate = int(request.form.get('hourly_salary_rate'))
-    working_hour_per_day = int(request.form.get('working_hour_per_day'))
-    working_day_per_week = int(request.form.get('working_day_per_week'))
-
-    monthly_salary = hourly_salary_rate*working_hour_per_day*working_day_per_week*4 
-    annual_salary = monthly_salary*12
-
-    return render_template('PayrollOutput.html',emp_id=emp_id, monthly_salary= monthly_salary , annual_salary = annual_salary, working_hour_per_day = working_hour_per_day, date=datetime.now())
-
-
+    print("all modification done...") 
+    return render_template("GetEmp.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
