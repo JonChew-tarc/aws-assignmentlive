@@ -248,10 +248,10 @@ def notifyAttendancePage():
 @app.route("/attendance/outputOut", methods=['GET', 'POST'])
 def notifyAttendancePage():
     emp_id = request.form['emp_id']
-    check_in = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s "
+    check_out = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s "
     cursor = db_conn.cursor()
     try:
-        cursor.execute(check_in)
+        cursor.execute(check_out)
         db_conn.commit()
     except Exception as e:
         return str(e)
