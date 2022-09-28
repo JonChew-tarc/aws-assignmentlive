@@ -31,7 +31,7 @@ def addEmpPage():
         records = cursor.fetchall()
         emp_id = employee_id + int(len(records))
         cursor.close()
-        return render_template('AddEmployee.html', date=datetime.now(), empId = emp_id)
+        return render_template('AddEmp.html', date=datetime.now(), empId = emp_id)
     except Exception as e:
         return str(e)
     
@@ -45,7 +45,7 @@ def home():
         records = cursor.fetchall()
         emp_id = employee_id + int(len(records))
         cursor.close()
-        return render_template('AddEmployee.html', date=datetime.now(), empId = emp_id)
+        return render_template('AddEmp.html', date=datetime.now(), empId = emp_id)
     except Exception as e:
         return str(e)
 
