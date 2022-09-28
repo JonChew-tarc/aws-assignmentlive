@@ -161,7 +161,27 @@ def getHomepage():
 #ROUTE TO ABOUTUS
 @app.route("/aboutus")
 def getAboutUs():
-    return render_template("AboutUs.html", date=datetime.now())
+    bucket_location = s3_client.get_bucket_location(Bucket=custombucket)
+    s3_location = (bucket_location['LocationConstraint'])
+
+    if s3_location is None:
+        s3_location = ''
+    else:
+        s3_location = '-' + s3_location
+
+    object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+        s3_location,
+        custombucket,
+        "aboutus.jpg")
+    
+    profilePicList = []
+
+    public_url = s3_client.generate_presigned_url('get_object', 
+                                                Params = {'Bucket': custombucket, 
+                                                            'Key': "aboutus.jpg"})
+
+    profilePicList.append(public_url)
+    return render_template("AboutUs.html", date=datetime.now(), img = profilePicList)
 
 
 @app.route("/applyLeave", methods=['POST'])
