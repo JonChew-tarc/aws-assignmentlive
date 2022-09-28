@@ -192,6 +192,9 @@ def applyLeave():
 def backHome():
     return render_template("Homepage.html")
 
+@app.route("/attendance", methods=['GET','POST'])
+def getAttendancePage():
+    return render_template("Attendance.html", date=datetime.now())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
