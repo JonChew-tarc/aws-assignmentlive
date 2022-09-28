@@ -233,7 +233,7 @@ def getAttendancePage():
 def notifyAttendancePage():
     emp_id = request.form['emp_id']
     attendance = request.form['attendanceConf']
-    cursor1 = db_conn.cursor()
+
     cursor2 = db_conn.cursor()
     cursor3 = db_conn.cursor()
     cursor4 = db_conn.cursor()
@@ -251,7 +251,6 @@ def notifyAttendancePage():
     except Exception as e:
         return str(e)
 
-    result = str(cursor1.fetchone())
     firstname = str(cursor2.fetchone())
     lastname = str(cursor3.fetchone())
     resultOutput = ""
@@ -259,7 +258,7 @@ def notifyAttendancePage():
     cursor4.execute(check_attendance,( attendance, emp_id))
     resultOutput = attendance
 
-    cursor1.close() 
+
     cursor2.close() 
     cursor3.close() 
     cursor4.close() 
