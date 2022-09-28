@@ -62,53 +62,54 @@ text-shadow: 1px 1px 1px #919191,
 }
 </style>
 <center>
-		<div class="navbar">
-			<div class="navbar-left">
-				<a href ="/homepage">
-					<button >
-						Home
-					</button>
-				</a>
-				
-			</div>
-			<div class="navbar-middle">
-				<a href="/addemp">
-					<button >
-						Add Employees
-					</button>
-	
-				</a>
-				
-				<a href="/getemp">
-					<button>
-						Employee Management
-					</button>
-				</a>
-				
-				<a href="/attendance">
+	<div class="navbar">
+		<div class="navbar-left">
+			<a href ="/homepage">
 				<button >
-					Attendance
+					Home
 				</button>
-				</a>
-				
-				<a href="/leave">
-					<button >
-						Leave Management
-					</button>
-				</a>
-				
-				<a href="/payroll">
-					<button>
-						Payroll Calculator
-					</button>
-				</a>
-				
-			</div>
-			<div class="navbar-right">
-				<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
-			</div>
-		
+			</a>
+			
 		</div>
+		<div class="navbar-middle">
+			<a href="/addemp">
+				<button >
+					Add Employees
+				</button>
+
+			</a>
+			
+			<a href="/getemp">
+				<button>
+					Employee Management
+				</button>
+			</a>
+			
+			<a href="/attendance">
+			<button >
+				Attendance
+			</button>
+			</a>
+			
+			<a href="/leave">
+				<button >
+					Leave Management
+				</button>
+			</a>
+			
+			<a href="/payroll">
+				<button>
+					Payroll Calculator
+				</button>
+			</a>
+			
+		</div>
+		<div class="navbar-right">
+			<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
+		</div>
+	
+	</div>
+
 		<div class = "getEmpHeader">
 			<h1 class= "getEmpTitle">Employee Information</h1>
 		</div>
