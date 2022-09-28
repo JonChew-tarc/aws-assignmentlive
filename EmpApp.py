@@ -262,7 +262,7 @@ def notifyAttendanceOutPage():
     return render_template("AttendanceOutput.html", status = "Checked Out")
 
 
-@app.route("/deleteEmp", methods=['POST'])
+@app.route("/deleteEmp", methods=['GET','POST'])
 def deleteEmp():
     emp_id = request.form['emp_id'] 
     delete_emp = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
