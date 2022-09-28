@@ -261,7 +261,7 @@ def deleteEmp():
 @app.route("/payroll/results", methods=['GET','POST'])
 def AddPayroll():
     emp_id = request.form['emp_id']
-    working_hour = request.form['working_hour']
+    working_hour = request.form['working_hour_per_day']
     monthly_salary = request.form['monthly_salary']
     annual_salary = request.form['annual_salary']
 
