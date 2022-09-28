@@ -111,6 +111,87 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', date = datetime.now(), empName = emp_name, profilePicList = profilePicList)
 
+@app.route("/getemp/")
+def getEmp():
+    return render_template('GetEmp.html')
+
+@app.route("/getemp/results",methods=['GET','POST'])
+def Employee():
+    
+     #Get Employee
+     emp_id = request.form['emp_id']
+    # SELECT STATEMENT TO GET DATA FROM MYSQL
+     current_emp = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
+
+     
+     cursor = db_conn.cursor()
+        
+     try:
+         cursor.execute(current_emp, { 'emp_id': int(emp_id) })
+         # #FETCH ONLY ONE ROWS OUTPUT
+         for result in cursor:
+            print(result)
+        
+
+     except Exception as e:
+        return str(e)
+        
+     finally:
+        cursor.close()
+    
+
+     return render_template("GetEmpOutput.html",result=result)
+
+@app.route("/applyLeave", method=['POST'])
+def applyLeave():
+    #let user pick the calendar
+    #add into the database
+    #show feedback message (from invisible to visible [label])
+    emp_id = request.form['emp_id'] #i think this is session, need this session to identify which employee
+    dateOfLeaveStart = request.form['leaveStartDate']
+    dateOfLeaveEnd = request.form['leaveEndDate']
+    leaveReason = request.form['leaveReason']
+    leaveEvidence = request.files['supportingDocument']
+    
+    
+    insert_sql = "INSERT INTO leaveEmployee VALUES (%s, %s, %s, %s)"
+    select_emp = "SELECT emp_id FROM employee WHERE emp_id = %(emp_id)s"
+    cursor = db_conn.cursor()
+
+    try:
+        #cursor.execute(select_emp,{'emp_id':int(emp_id)}) #not sure need this or not
+        cursor.execute(insert_sql, (dateOfLeaveStart, dateOfLeaveEnd, leaveReason, emp_id))
+        db_conn.commit()
+        emp_leave_file_name_in_s3 = "emp-leave-" + str(dateOfLeaveStart) + "_image_file"
+        s3 = boto3.resource('s3')
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            s3.Bucket(custombucket).put_object(Key=emp_leave_file_name_in_s3, Body=leaveEvidence)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_leave_file_name_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close() 
+
+    print("all modification done...")   
+
+@app.route("/backHome", method=['POST'])
+def backHome():
+    return render_template("Homepage.html")
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
