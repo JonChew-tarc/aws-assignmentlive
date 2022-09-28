@@ -79,7 +79,10 @@
 			<div class="payrollConfirmFormClass-bubble-container">
 				<button type="submit"  class="payrollConfirmButton" autofocus multiple="multiple">CONFIRM SALARY</button>
 			</div>
-			
+			<input type="hidden" name="emp_id" value={{emp_id}} id="hidden_emp_id">
+			<input type="hidden" name="working_hour_per_day" value={{working_hour_per_day}}  id="hidden_working_hour_per_day" />
+			<input type="hidden" name="monthly_salary"  value={{monthly_salary}} id="hidden_monthly_salary" />
+			<input type="hidden" name="annual_salary"  value={{annual_salary}} id="hidden_annual_salary" />
 			</form>
 			<br>
 			<form action="/payroll" autocomplete="on" method = "POST" enctype="multipart/form-data" class="addEmpFormClass-bubble">
@@ -88,15 +91,9 @@
 				</div>
 			</form>
 
-			<input type="hidden" name="emp_id" value="" id="hidden_emp_id">
-			<input type="hidden" name="working_hour_per_day" value=""  id="hidden_working_hour_per_day" />
-			<input type="hidden" name="monthly_salary"  value="" id="hidden_monthly_salary" />
-			<input type="hidden" name="annual_salary"  value="" id="hidden_annual_salary" />
+			
 
-			<script>
-				document.getElementById("hidden_emp_id").value = emp_id_id;
-				alert(document.getElementById("hidden_emp_id").value);
-			</script>
+			
 
 		
 	

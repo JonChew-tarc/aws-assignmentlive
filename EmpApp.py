@@ -260,16 +260,16 @@ def deleteEmp():
 #PAYROLL OUTPUT PAGE
 @app.route("/payroll/results", methods=['GET','POST'])
 def AddPayroll():
-    emp_id = int(request.form.get('emp_id'))
-    working_hour = int(request.form.get('working_hour_per_day'))
-    monthly_salary = int(request.form.get('monthly_salary'))
-    annual_salary =int(request.form.get('annual_salary'))
+    emp_id = request.form.get['emp_id']
+    working_hour = request.form.get['working_hour']
+    monthly_salary = request.form.get['monthly_salary']
+    annual_salary = request.form.get['annual_salary']
 
     insert_sql = "INSERT INTO employeeSalary VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(insert_sql, (emp_id.toString(), working_hour.toString(), monthly_salary.toString(), annual_salary.toString()))
+        cursor.execute(insert_sql, (emp_id, working_hour, monthly_salary, annual_salary))
         db_conn.commit()
 
     except Exception as e:
