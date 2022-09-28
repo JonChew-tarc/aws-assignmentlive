@@ -261,7 +261,7 @@ def notifyAttendancePage():
     cursor2.close() 
 
     print("all modification done...") 
-    return render_template("AttendanceOutput.html", status = resultOutput)
+    return render_template("AttendanceOutput.html", date = datetime.now(), status = resultOutput)
 
 
 
