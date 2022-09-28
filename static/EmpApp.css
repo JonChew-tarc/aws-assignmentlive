@@ -405,6 +405,7 @@ body {
 	align-items: center;
 	margin: 10px 10px;
     border-radius: 15px;
+	text-decoration: none;
 }
 
 .homepageButtonFormClass-bubble-container{
