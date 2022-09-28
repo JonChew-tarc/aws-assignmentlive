@@ -53,10 +53,6 @@ def home():
         return str(e)
 
 
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
-
 
 @app.route("/addemp/results", methods=['POST'])
 def AddEmp():
