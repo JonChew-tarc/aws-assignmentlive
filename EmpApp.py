@@ -202,7 +202,7 @@ def applyLeave():
 
     try:
         #cursor.execute(select_emp,{'emp_id':int(emp_id)}) #not sure need this or not
-        cursor.execute(insert_sql, (dateOfLeaveStart, dateOfLeaveEnd, leaveReason, emp_id))
+        cursor.execute(insert_sql, (emp_id, dateOfLeaveStart, dateOfLeaveEnd, leaveReason))
         db_conn.commit()
         emp_leave_file_name_in_s3 = "emp-leave-" + str(dateOfLeaveStart) + "_image_file"
         s3 = boto3.resource('s3')
