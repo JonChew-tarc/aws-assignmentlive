@@ -1,3 +1,4 @@
+from multiprocessing.resource_tracker import ResourceTracker
 from flask import Flask, render_template, request
 from pymysql import connections
 from datetime import datetime
@@ -64,7 +65,6 @@ def AddEmp():
     emp_image_file = request.files['emp_image_file']
 
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
-    insertAtt_sql = "INSERT INTO attendance VALUES (%s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -73,7 +73,6 @@ def AddEmp():
     try:
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, training, email))
-        cursor.execute(insertAtt_sql, (emp_id, "Checked Out"))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -192,12 +191,13 @@ def applyLeave():
     finally:
         cursor.close() 
 
-    print("all modification done...") 
-    return render_template("AddEmp.html")  
+    print("all modification done...")
+    return render_template("Homepage.html")   
 
 @app.route("/backHome", methods=['POST'])
 def backHome():
     return render_template("Homepage.html")
+
 
 @app.route("/attendance", methods=['GET','POST'])
 def getAttendancePage():
@@ -208,17 +208,6 @@ def deleteEmp():
     emp_id = request.form['emp_id'] 
     delete_emp = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
-
-    try:
-        cursor.execute(delete_emp)
-        db_conn.commit()
-    except Exception as e:
-        return str(e)
-    finally:
-        cursor.close() 
-
-    print("all modification done...") 
-    return render_template("GetEmp.html")
 
     try:
         cursor.execute(delete_emp)
