@@ -220,10 +220,6 @@ def deleteEmp():
     print("all modification done...") 
     return render_template("GetEmp.html")
 
-@app.route("/payroll", methods=['POST'])
-def about():
-    return render_template('Payroll.html')
-
 #PAYROLL OUTPUT PAGE
 @app.route("/payroll/calculate", methods=['GET','POST'])
 def AddPayroll():
@@ -263,12 +259,12 @@ def CalpayRoll():
     return render_template('PayrollOutput.html',emp_id=emp_id, monthly_salary= monthly_salary , annual_salary = annual_salary, working_hour_per_day = working_hour_per_day, date=datetime.now())
 
 #ROUTE TO PAYROLL
-@app.route("/payroll",methods=['GET','POST'])
+@app.route("/payroll")
 def getPayroll():
     return render_template("Payroll.html", date=datetime.now())
 
 #ROUTE TO HOMEPAGE
-@app.route("/homepage",methods=['GET','POST'])
+@app.route("/homepage")
 def getHomepage():
     return render_template("Homepage.html", date=datetime.now())
 
