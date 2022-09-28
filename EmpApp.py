@@ -264,12 +264,12 @@ def notifyAttendanceOutPage():
 
 @app.route("/deleteEmp", methods=['GET','POST'])
 def deleteEmp():
-    emp_id = request.form['emp_id'] 
+    emp_id = request.form['emp_id']
     delete_emp = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(delete_emp)
+        cursor.execute(delete_emp,(emp_id))
         db_conn.commit()
     except Exception as e:
         return str(e)
@@ -288,7 +288,7 @@ def deleteEmp():
         cursor.close() 
 
     print("all modification done...") 
-    return render_template("GetEmp.html")
+    return render_template('Homepage.html', date=datetime.now())
 
 #PAYROLL OUTPUT PAGE
 @app.route("/payroll/results", methods=['GET','POST'])
