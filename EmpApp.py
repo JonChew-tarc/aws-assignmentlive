@@ -258,7 +258,7 @@ def deleteEmp():
     return render_template("GetEmp.html")
 
 #PAYROLL OUTPUT PAGE
-@app.route("/payroll/calculate", methods=['GET','POST'])
+@app.route("/payroll/results", methods=['GET','POST'])
 def AddPayroll():
     emp_id = request.form['emp_id']
     working_hour = request.form['working_hour']
@@ -281,8 +281,8 @@ def AddPayroll():
     print("all modification done...")
     return render_template('Homepage.html', date=datetime.now())
 
-#PAYROLL PAGE
-@app.route("/payroll/results",methods=['GET','POST'])
+#PAYROLL PAGE 
+@app.route("/payroll/calculate",methods=['GET','POST'])
 def CalpayRoll():
 
     emp_id = int(request.form.get('emp_id'))
