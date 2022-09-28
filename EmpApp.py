@@ -245,7 +245,7 @@ def notifyAttendanceInPage():
     print("all modification done...") 
     return render_template("AttendanceOutput.html", status = "Checked In")
 
-@app.route("/attendance/outputOut", methods=['GET', 'POST'])
+@app.route("/attendance/outputOut", methods=['POST'])
 def notifyAttendanceOutPage():
     emp_id = request.form['emp_id']
     check_out = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s"
@@ -262,7 +262,7 @@ def notifyAttendanceOutPage():
     return render_template("AttendanceOutput.html", status = "Checked Out")
 
 
-@app.route("/deleteEmp", methods=['GET','POST'])
+@app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
     emp_id = request.form['emp_id']
     delete_emp = "DELETE FROM employee WHERE emp_id = %s"
