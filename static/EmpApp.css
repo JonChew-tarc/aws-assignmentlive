@@ -244,6 +244,7 @@ body {
 	border-radius: 15px;
 	align-self: center;
 	padding: 30px;
+	margin : auto;
 }
 
 .form-container-add {
