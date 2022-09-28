@@ -66,15 +66,15 @@
 			</div>
 			<div class="addEmpFormClass-bubble-container">
 				<div><label for="working_hour" id = "working_hour_id">Working Hours :</label></div>
-				<label name = "working_hour_per_day">{{working_hour_per_day}}</label>
+				<label id="working_hour_per_day_id" >{{working_hour_per_day}}</label>
 			</div>
 			<div class="addEmpFormClass-bubble-container">
 				<div><label for="monthly_salary">Monthly Salary :</label></div>
-				<label name = "monthly_salary" id = "monthly_salary_id">{{monthly_salary}}</label>
+				<label  id = "monthly_salary_id">{{monthly_salary}}</label>
 			</div>
 			<div class="addEmpFormClass-bubble-container">
 				<div><label for="annual_salary">Annual Salary :</label></div> 
-				<label name = "annual_salary" id = "annual_salary_id">{{annual_salary}}</label>
+				<label id = "annual_salary_id">{{annual_salary}}</label>
 			</div>
 			<div class="payrollConfirmFormClass-bubble-container">
 				<button type="submit"  class="payrollConfirmButton" autofocus multiple="multiple">CONFIRM SALARY</button>
@@ -88,10 +88,16 @@
 				</div>
 			</form>
 
-			<input type="hidden" name="emp_id" value="" id="hidden_emp_id" value={{emp_id}}>
-			<input type="hidden" name="working_hour_per_day" value={{working_hour_per_day}} id="hidden_working_hour_per_day" />
-			<input type="hidden" name="monthly_salary" value={{monthly_salary}} id="hidden_monthly_salary" />
-			<input type="hidden" name="annual_salary" value={{annual_salary}} id="hidden_annual_salary" />
+			<input type="hidden" name="emp_id" value="" id="hidden_emp_id">
+			<input type="hidden" name="working_hour_per_day" value=""  id="hidden_working_hour_per_day" />
+			<input type="hidden" name="monthly_salary"  value="" id="hidden_monthly_salary" />
+			<input type="hidden" name="annual_salary"  value="" id="hidden_annual_salary" />
+
+			<script>
+				document.getElementById("hidden_emp_id").value = emp_id_id;
+				alert(document.getElementById("hidden_emp_id").value);
+			</script>
+
 		
 	
 
