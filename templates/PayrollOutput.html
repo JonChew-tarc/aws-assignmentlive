@@ -9,26 +9,50 @@
 		<body>
 			<div class="navbar">
 				<div class="navbar-left">
-					<a href="/">
-						<p>Home </p>
+					<a href ="/homepage">
+						<button >
+							Home
+						</button>
 					</a>
+					
 				</div>
 				<div class="navbar-middle">
-					<a href="/addemp/">
-						<p>Add Employees</p>
+					<a href="/addemp">
+						<button >
+							Add Employees
+						</button>
+		
 					</a>
-					<a href="/getemp/">
-						<p>Get Empolyees</p>
+					
+					<a href="/getemp">
+						<button>
+							Employee Management
+						</button>
 					</a>
-					<a href="/attendance/">
-						<p>Attendance</p>
+					
+					<a href="/attendance">
+					<button >
+						Attendance
+					</button>
 					</a>
-					<a href="/payroll/">
-						<p>Payroll Calculator</p>
+					
+					<a href="/leave">
+						<button >
+							Leave Management
+						</button>
 					</a>
+					
+					<a href="/payroll">
+						<button>
+							Payroll Calculator
+						</button>
+					</a>
+					
 				</div>
-				<div class="navbar-right"></div>
-				{{ date.strftime("%A, %d %B, %Y at %X") }}
+				<div class="navbar-right">
+					<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
+				</div>
+			
 			</div>
 
 			<h1 id="AddEmpTitle" class="leaveTitle" >Payroll Details</h1>
