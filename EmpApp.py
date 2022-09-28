@@ -229,6 +229,39 @@ def getAttendancePage():
 
     return render_template("Attendance.html", date=datetime.now(), tableContent = arr)
 
+@app.route("/attendance/outputIn", methods=['GET', 'POST'])
+def notifyAttendancePage():
+    emp_id = request.form['emp_id']
+    check_in = "UPDATE attendance SET attend = Checked In WHERE emp_id = %s "
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(check_in)
+        db_conn.commit()
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close() 
+
+    print("all modification done...") 
+    return render_template("AttendanceOutput.html", status = "Checked In")
+
+@app.route("/attendance/outputOut", methods=['GET', 'POST'])
+def notifyAttendancePage():
+    emp_id = request.form['emp_id']
+    check_in = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s "
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(check_in)
+        db_conn.commit()
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close() 
+
+    print("all modification done...") 
+    return render_template("AttendanceOutput.html", status = "Checked Out")
+
+
 @app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
     emp_id = request.form['emp_id'] 

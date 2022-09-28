@@ -105,26 +105,33 @@
 	</div>
 </div>
 
-	<div class="table-container">
-		<table style="background-color: dimgrey; color : white">
-			<tr class = "header">
-				<th class = "id">
-					Employee ID
-				</th>
-				<th class = "child">
-					Employee Name
-				</th>
-				<th class = "child">
-					Status
-				</th>
-			</tr>
-			<tbody id="tableContent">
-
-			</tbody>
-		</table>
-	</div>
+	
 
 	<div class="addEmpFormClass">
+		<div class="table-container">
+			<table style="background-color: dimgrey; color : black">
+				<tr class = "header">
+					<th class = "id">
+						Employee ID
+					</th>
+					<th class = "child">
+						Employee Name
+					</th>
+					<th class = "child">
+						Status
+					</th>
+				</tr>
+				<tbody id="tableContent">
+	
+				</tbody>
+			</table>
+		</div>
+
+		<br />
+		<br />
+
+		<br />
+
 		<form action="/attendance" autocomplete="on" method="POST" class="addEmpFormClass-bubble">
 		<div class="addEmpFormClass-bubble-container">
 			<div>
@@ -133,13 +140,13 @@
 			<input type="number" name="emp_id" autofocus size="40">
 		</div>
 
-				<div class="button-container1">
-					<a href="/attendance/output">
-						<button type="submit" formaction="/attendance/checkIn" class="form-button">CHECK IN</button>
+				<div class="addEmpFormClass-bubble-container">
+					<a href="/attendance/outputIn">
+						<button type="submit" formaction="/attendance/checkIn" class="addFormButton">CHECK IN</button>
 					</a>
 						
-				<a href="/attendance/output">
-					<button type="submit" class="form-button">CHECK OUT</button>
+				<a href="/attendance/outputOut">
+					<button type="submit" class="addFormButton">CHECK OUT</button>
 				</a>
 					</div>
 		</form>
