@@ -278,15 +278,19 @@ def notifyAttendancePage():
 def deleteEmp():
     emp_id = request.form['emp_id']
     delete_emp = "DELETE FROM employee WHERE emp_id = %s"
+    delete_att = "DELETE FROM attendance WHERE emp_id = %s"
     cursor = db_conn.cursor()
+    cursor2 = db_conn.cursor()
 
     try:
         cursor.execute(delete_emp,(emp_id))
+        cursor2.execute(delete_att,(emp_id))
         db_conn.commit()
     except Exception as e:
         return str(e)
     finally:
         cursor.close() 
+        cursor2.close() 
 
     print("all modification done...") 
     return render_template('Homepage.html', date=datetime.now())

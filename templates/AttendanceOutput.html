@@ -9,70 +9,74 @@
 	<title>Successfully Adjusted Attendance</title>
 </head>
 <body>
-	<div class="navbar">
-		<div class="navbar-left">
-			<a href ="/">
-				<button >
-					Home
-				</button>
-			</a>
-			
-		</div>
-		<div class="navbar-middle">
-			<a href="/addemp">
-				<button >
-					Add Employees
-				</button>
+	<center>
 
-			</a>
-			
-			<a  href="/getemp">
-				<button>
-					Employee Management
-				</button>
-			</a>
-			
-			<a href="/attendance">
-			<button >
-				Attendance
-			</button>
-			</a>
-			
-			<a href="/leave">
-				<button >
-					Leave Management
-				</button>
-			</a>
-			
-			<a href="/payroll">
-				<button>
-					Payroll Calculator
-				</button>
-			</a>
-			
-		</div>
-		<div class="navbar-right">
-			<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
-		</div>
 	
-	</div>
-</div>
-	<div class="form-container form-container-add">
-		<div class="form-bubble body-container">
-			<span>
-				<h1>Attendance Notification</h1>
-			</span>
-			<span>
-				<h2>Employee {{empName}} has been {{status}}</h2>
-			</span>
-		<br />
-					
+		<div class="navbar">
+			<div class="navbar-left">
+				<a href ="/">
+					<button >
+						Home
+					</button>
+				</a>
+				
+			</div>
+			<div class="navbar-middle">
+				<a href="/addemp">
+					<button >
+						Add Employees
+					</button>
+
+				</a>
+				
+				<a  href="/getemp">
+					<button>
+						Employee Management
+					</button>
+				</a>
+				
+				<a href="/attendance">
+				<button >
+					Attendance
+				</button>
+				</a>
+				
+				<a href="/leave">
+					<button >
+						Leave Management
+					</button>
+				</a>
+				
+				<a href="/payroll">
+					<button>
+						Payroll Calculator
+					</button>
+				</a>
+				
+			</div>
+			<div class="navbar-right">
+				<p>{{ date.strftime("%A, %d %B, %Y at %X") }}</p>
+			</div>
+		
 		</div>
-		
-			<a href="/attendance" style ="margin:auto;margin-top : 20px;">
-				<button class="addFormButton" style="width:50%">Return back to Attendance</button>
-			</a>
-		
 	</div>
+		<div class="form-container form-container-add">
+			<div class="form-bubble body-container">
+				<span>
+					<h1>Attendance Notification</h1>
+				</span>
+				<span>
+					<h2>Employee {{empName}} has been {{status}}</h2>
+				</span>
+			<br />
+						
+			</div>
+			
+				<a href="/attendance" style ="margin:auto;margin-top : 20px;">
+					<button class="addFormButton" style="width:50%">Return back to Attendance</button>
+				</a>
+			
+		</div>
+	</center>
 </body>
 </html>
