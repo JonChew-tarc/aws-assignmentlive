@@ -146,7 +146,7 @@ def Employee():
 
 @app.route("/leave")
 def getLeave():
-    return render_template('LeaveEmp.html')
+    return render_template('LeaveEmp.html' , date = datetime.now())
 
 #ROUTE TO PAYROLL
 @app.route("/payroll")
