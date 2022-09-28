@@ -265,7 +265,7 @@ def notifyAttendanceOutPage():
 @app.route("/deleteEmp", methods=['GET','POST'])
 def deleteEmp():
     emp_id = request.form['emp_id']
-    delete_emp = "DELETE FROM employee WHERE emp_id = %(emp_id)s"
+    delete_emp = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
     try:
