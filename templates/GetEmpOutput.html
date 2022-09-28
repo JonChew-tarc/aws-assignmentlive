@@ -162,11 +162,12 @@ text-shadow: 1px 1px 1px #919191,
 						<button type="submit" class="getEmpBack">Back to Home</button><br><br>
 					</a>
 					<br><br>
+					<form action="/deleteEmp" autocomplete="on" method = "POST" enctype="multipart/form-data">
 					<a href="/deleteEmp">
 						<button type="submit" class="getEmpBack">Delete Employee</button><br><br>
 					</a>
 					<input type="hidden" name="emp_id" value={{ result[0] }} id="hidden_emp_id">
-
+					</form>
 			  	</div>
 
 			
