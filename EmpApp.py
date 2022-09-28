@@ -146,7 +146,7 @@ def Employee():
 
 @app.route("/leave")
 def getLeave():
-    return render_template('LeaveEmp.html' , date = datetime.now())
+    return render_template('LeaveEmp.html')
 
 #ROUTE TO PAYROLL
 @app.route("/payroll")
@@ -260,10 +260,10 @@ def deleteEmp():
 #PAYROLL OUTPUT PAGE
 @app.route("/payroll/results", methods=['GET','POST'])
 def AddPayroll():
-    emp_id = request.form.get['emp_id']
-    working_hour = request.form.get['working_hour']
-    monthly_salary = request.form.get['monthly_salary']
-    annual_salary = request.form.get['annual_salary']
+    emp_id = request.form['emp_id']
+    working_hour = request.form['working_hour']
+    monthly_salary = request.form['monthly_salary']
+    annual_salary = request.form['annual_salary']
 
     insert_sql = "INSERT INTO employeeSalary VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
