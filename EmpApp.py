@@ -232,10 +232,10 @@ def getAttendancePage():
 @app.route("/attendance/outputIn", methods=['GET', 'POST'])
 def notifyAttendanceInPage():
     emp_id = request.form['emp_id']
-    check_in = "UPDATE attendance SET attend = Checked In WHERE emp_id = %(emp_id)s"
+    check_in = "UPDATE attendance SET attend = Checked In WHERE emp_id = %s"
     cursor = db_conn.cursor()
     try:
-        cursor.execute(check_in)
+        cursor.execute(check_in,(emp_id))
         db_conn.commit()
     except Exception as e:
         return str(e)
@@ -248,10 +248,10 @@ def notifyAttendanceInPage():
 @app.route("/attendance/outputOut", methods=['GET', 'POST'])
 def notifyAttendanceOutPage():
     emp_id = request.form['emp_id']
-    check_out = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %(emp_id)s"
+    check_out = "UPDATE attendance SET attend = Checked Out WHERE emp_id = %s"
     cursor = db_conn.cursor()
     try:
-        cursor.execute(check_out)
+        cursor.execute(check_out,(emp_id))
         db_conn.commit()
     except Exception as e:
         return str(e)
